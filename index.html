@@ -2,38 +2,35 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <!-- viewport único e correto -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sorteador do Pretinho</title>
 
-  <!-- Fonte terminal / hacker -->
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- camadas de efeito (noise + criaturas) -->
+
   <div class="bg-noise"></div>
   <div class="bg-pulse"></div>
   <div class="bg-creatures"></div>
 
   <main class="wrap">
+
     <section class="panel">
-      <header class="panel-head">
-        <h1 class="logo" data-text="SORTEADOR">SORTEADOR</h1>
-        <p class="sub">só para pretinhos — se for branco respire com cuidado</p>
-      </header>
+      <h1 class="logo" data-text="SORTEADOR">SORTEADOR</h1>
+      <p class="sub">só para pretinhos — se for branco respire com cuidado</p>
 
       <div class="fields">
         <label class="label">Quantidade de numerus
-          <input id="quantidade" class="input" type="number" min="1" />
+          <input id="quantidade" class="input" type="number" min="1">
         </label>
 
         <label class="label">Do numeru
-          <input id="de" class="input" type="number" min="1" />
+          <input id="de" class="input" type="number" min="1">
         </label>
 
         <label class="label">Ate u numero
-          <input id="ate" class="input" type="number" min="1" />
+          <input id="ate" class="input" type="number" min="1">
         </label>
       </div>
 
@@ -43,17 +40,18 @@
       </div>
 
       <div id="resultado" class="resultado">
-        <label class="texto__paragrafo">numerus roubados: <span class="none">nenhum até agora</span></label>
+        <label>numerus roubados: <span>nenhum até agora</span></label>
       </div>
     </section>
 
     <aside class="art">
       <img src="elliot.png" class="elliot" alt="Elliot">
     </aside>
+
   </main>
 
-  <!-- ======= calculadora: MANTER DENTRO DO BODY (antes do </body>) ======= -->
-  <div class="calculadora-container" aria-label="calculadora">
+  <!-- CALCULADORA -->
+  <div class="calculadora-container">
       <h2>Calculadora</h2>
 
       <input type="text" id="display" class="display" disabled>
@@ -81,6 +79,6 @@
       </div>
   </div>
 
-  <script src="app.js" defer></script>
+  <script src="app.js"></script>
 </body>
 </html>
