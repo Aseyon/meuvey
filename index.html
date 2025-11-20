@@ -58,8 +58,7 @@
 
 <div class="calculadora-container">
     <h2>Calculadora</h2>
-
-    <input type="text" id="display" class="display" disabled>
+    <input type="text" id="display" class="display" disabled />
 
     <div class="botoes">
         <button class="btn" onclick="add('7')">7</button>
@@ -79,7 +78,9 @@
 
         <button class="btn" onclick="add('0')">0</button>
         <button class="btn" onclick="add('.')">.</button>
+        <button class="btn btn-operador" onclick="calcular()">=</button>
         <button class="btn btn-operador" onclick="add('+')">+</button>
-        <button class="btn btn-igual" onclick="resultado()">=</button>
+
+        <button class="btn limpar" onclick="limpar()">C</button>
     </div>
 </div>
