@@ -240,9 +240,12 @@ body {
 /* CELULAR */
 @media (max-width: 700px) {
     .calculadora-container {
-        bottom: 12px;
-        right: 50%;
-        transform: translateX(50%);
-        width: 88%;
-    }
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 240px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      backdrop-filter: blur(4px); /* fica mais bonito */
+  }
 }
