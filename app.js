@@ -26,14 +26,14 @@ function sortear() {
             ligarBotao();
         }
 
-        let resultado = document.getElementById('resultado');
-        resultado.innerHTML = `<label class="texto__paragrafo">Numerus roubados: ${sorteados}</label>`;
+        document.getElementById('resultado').innerHTML =
+          `<label>Numerus roubados: ${sorteados}</label>`;
     }
 }
 
 function ligarBotao() {
     let butao = document.getElementById('btn-reiniciar');
-    
+
     if (butao.classList.contains('container__botao-desabilitado')) {
         butao.classList.remove('container__botao-desabilitado');
         butao.classList.add('container__botao');
@@ -45,17 +45,20 @@ function ligarBotao() {
 
 function obterNumeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-} 
+}
 
 function reiniciar() {
     document.getElementById("quantidade").value = '';
     document.getElementById('de').value = '';
     document.getElementById('ate').value = '';
 
-    document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">numerus roubados: <span class="none">nenhum até agora</span></label>'
+    document.getElementById('resultado').innerHTML =
+      `<label>numerus roubados: <span>nenhum até agora</span></label>`;
 
     ligarBotao();
 }
+
+/* ——— CALCULADORA ——— */
 
 function add(value) {
     document.getElementById("display").value += value;
@@ -63,10 +66,9 @@ function add(value) {
 
 function resultado() {
     try {
-        document.getElementById("display").value = 
+        document.getElementById("display").value =
             eval(document.getElementById("display").value);
     } catch {
         document.getElementById("display").value = "Erro";
     }
 }
-
