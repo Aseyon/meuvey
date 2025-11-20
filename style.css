@@ -2,17 +2,17 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
-    min-height: 100%;
-    height: auto;
-    overflow-x: hidden;
-    overflow-y: auto;
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;   /* ROLA NORMAL */
 }
+
 body {
   background: #050506;
   font-family: "Share Tech Mono", monospace;
   color: #e6e6e6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 /* BACKGROUNDS */
