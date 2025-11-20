@@ -23,8 +23,9 @@ function sortear() {
             }
 
             sorteados.push(numero);
-            ligarBotao();
         }
+
+        ligarBotao();
 
         document.getElementById('resultado').innerHTML =
           `<label>Numerus roubados: ${sorteados}</label>`;
