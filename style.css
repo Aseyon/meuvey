@@ -1,107 +1,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
 html, body {
   min-height: 100%;
-  height: auto;
   overflow-x: hidden;
-  overflow-y: auto;   /* ROLA NORMAL */
+  overflow-y: auto;
 }
 
 body {
   background: #050506;
   font-family: "Share Tech Mono", monospace;
   color: #e6e6e6;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* BACKGROUNDS */
+.bg-noise, .bg-pulse, .bg-creatures {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .bg-noise {
-  position: fixed; inset: 0;
   background-image: url('img/noise.png');
   background-size: cover;
   opacity: 0.06;
-  mix-blend-mode: screen;
-  z-index: 0;
-  pointer-events: none;
-  animation: slightShift 6s infinite linear;
 }
 
 .bg-pulse {
-  position: fixed; inset: 0;
-  background: radial-gradient(ellipse at center, rgba(110,8,8,0.08) 0%, rgba(0,0,0,0.0) 50%);
-  z-index: 1;
-  pointer-events: none;
-  animation: breathing 6s ease-in-out infinite;
+  background: radial-gradient(ellipse at center, rgba(110,8,8,0.08), transparent 55%);
 }
 
 .bg-creatures {
-  position: fixed; inset: 0;
   background-image: url('img/creatures.png');
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.06;
-  mix-blend-mode: lighten;
-  z-index: 2;
-  pointer-events: none;
-  transform-origin: center;
-  animation: creatureTwitch 5s ease-in-out infinite;
 }
 
-@keyframes slightShift { 
-  0%{transform:translate(0)} 
-  50%{transform:translate(-3px,2px)} 
-  100%{transform:translate(0)} 
-}
-@keyframes breathing { 
-  0%{opacity:0.06} 
-  50%{opacity:0.12} 
-  100%{opacity:0.06} 
-}
-@keyframes creatureTwitch { 
-  0%{transform:scale(1)} 
-  50%{transform:scale(1.015) translate(2px,-2px)} 
-  100%{transform:scale(1)} 
-}
-
-/* LAYOUT GERAL */
+/* LAYOUT */
 .wrap {
   position: relative;
-  z-index: 10;
   width: 92%;
   max-width: 1100px;
-  margin: 4vh auto;
+  margin: 4vh auto 50px auto;
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 40px;
-  align-items: center;
 }
 
 .panel {
-  background: linear-gradient(180deg, rgba(8,8,8,0.88), rgba(10,10,10,0.95));
-  border: 1px solid rgba(140, 18, 18, 0.18);
+  background: rgba(10, 10, 10, 0.92);
+  border: 1px solid rgba(140,18,18,0.18);
   padding: 34px;
   border-radius: 8px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 40px rgba(120,10,10,0.06) inset;
-  animation: panelFlicker 6s ease-in-out infinite;
 }
 
 .art {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.logo {
-  font-size: 44px;
-  color: #c72b2b;
-  letter-spacing: 2px;
-  margin-bottom: 6px;
-  position: relative;
+.elliot {
+  width: 320px;
+  border-radius: 6px;
 }
-
-.sub { color: #bfbfbf; font-size: 13px; margin-bottom: 18px; opacity: 0.9; }
 
 /* CAMPOS */
 .fields {
@@ -111,42 +76,42 @@ body {
   margin-bottom: 18px;
 }
 
-.label { 
+.label {
   display: flex;
   flex-direction: column;
-  font-size: 13px;
-  color: #bdbdbd;
-  text-transform: uppercase;
   gap: 8px;
 }
 
 .input {
-  background: rgba(0,0,0,0.45);
-  color: #f3f3f3;
-  border-radius: 6px;
   padding: 14px;
+  background: rgba(0,0,0,0.45);
   border: 1px solid rgba(255,255,255,0.06);
-  font-size: 16px;
+  border-radius: 6px;
   text-align: center;
 }
 
 /* BOTÕES */
-.buttons { display:flex; gap: 12px; margin-bottom: 14px; }
-.btn { 
+.buttons {
+  display:flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.btn {
   padding: 12px 18px;
   border-radius: 6px;
-  cursor: pointer;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .btn-primary {
   background: linear-gradient(180deg,#6b0b0b,#3c0000);
-  color: #fff;
+  color: white;
 }
 
 .btn-muted {
-  background: rgba(50,50,50,0.45);
-  color: #b7b7b7;
+  background: rgba(60,60,60,0.45);
+  color: #ccc;
 }
 
 /* RESULTADO */
@@ -154,94 +119,51 @@ body {
   margin-top: 8px;
   padding: 8px 10px;
   border-left: 3px solid rgba(199,43,43,0.9);
-  color: #e8e8e8;
-  min-height: 44px;
 }
 
-/* IMAGEM */
-.elliot {
-  width: 320px;
-  border-radius: 6px;
-  filter: contrast(120%) saturate(.85) brightness(.78);
-  transition: .25s;
-}
-
-/* RESPONSIVIDADE PC → CELULAR */
-@media (max-width: 940px) {
-  .wrap { grid-template-columns: 1fr; padding: 18px; gap: 18px; }
-  .art { order: -1; }
-  .elliot { width: 230px; }
-  .fields { grid-template-columns: 1fr; }
-}
-
-/* ————— CALCULADORA REFEITA ————— */
-
+/* CALCULADORA — FIX CORRIGIDO */
 .calculadora-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-
+    position: relative;
+    margin: 60px auto 120px;
+    width: 260px;
     background: rgba(10,10,10,0.92);
     padding: 18px;
     border-radius: 12px;
     border: 1px solid rgba(255,0,0,0.14);
-    width: 230px;
-
-    box-shadow: 0 0 22px rgba(255, 0, 0, 0.20);
-    z-index: 9999;
-    backdrop-filter: blur(6px);
-}
-
-.calculadora-container h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #ff4d4d;
-    font-size: 18px;
+    box-shadow: 0 0 20px rgba(255,0,0,0.15);
 }
 
 .display {
-    width: 100%;
-    height: 48px;
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 22px;
-    text-align: right;
-    padding: 10px;
-    margin-bottom: 10px;
+    width:100%;
+    height:48px;
+    background:#111;
+    border:1px solid #333;
+    border-radius:8px;
+    color:white;
+    font-size:22px;
+    text-align:right;
+    padding:10px;
+    margin-bottom:10px;
 }
 
 .botoes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-}
-
-.btn {
-    padding: 14px 0;
-    border-radius: 8px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #eee;
-    font-size: 17px;
-    cursor: pointer;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
 }
 
 .btn-operador {
-    background: #3a0a0a;
+  background:#3a0a0a;
 }
 
 .btn-igual {
-    background: #ff4444;
-    color: #fff;
+  background:#ff4444;
+  color:white;
 }
 
 /* CELULAR */
-@media (max-width: 700px) {
-    .calculadora-container {
-    position: relative;
-    margin: 40px auto;
-    margin-top: 80px;     /* distancia do resto */
-    width: 260px;         /* ajusta tamanho */
+@media (max-width: 940px) {
+  .wrap { grid-template-columns: 1fr; }
+  .elliot { width: 230px; }
+  .fields { grid-template-columns: 1fr; }
 }
