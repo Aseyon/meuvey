@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Sorteador do Pretinho</title>
@@ -58,7 +59,8 @@
 
 <div class="calculadora-container">
     <h2>Calculadora</h2>
-    <input type="text" id="display" class="display" disabled />
+
+    <input type="text" id="display" class="display" disabled>
 
     <div class="botoes">
         <button class="btn" onclick="add('7')">7</button>
@@ -78,9 +80,8 @@
 
         <button class="btn" onclick="add('0')">0</button>
         <button class="btn" onclick="add('.')">.</button>
-        <button class="btn btn-operador" onclick="calcular()">=</button>
         <button class="btn btn-operador" onclick="add('+')">+</button>
-
-        <button class="btn limpar" onclick="limpar()">C</button>
+        <button class="btn btn-igual" onclick="resultado()">=</button>
     </div>
 </div>
+
